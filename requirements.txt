@@ -8,3 +8,6 @@ tqdm==4.64.1
 transformers==4.23.1
 wikipedia==1.4.0
 spacy==3.4.3
+google==3.0.0
+googlesearch-python==1.1.0
+lxml==4.9.1

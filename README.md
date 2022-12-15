@@ -38,8 +38,8 @@ If you are an Apple M1 user, you will find some useful information [here](#Insta
 
 **NOTE**<br>
 Installation is currently limited to my own experiences, therefore:
-1. Windows is not covered in the installation script
-2. For ease in Mac users, installation by default creates an Intel-based environment (installs for x86 architecture)
+1. It was not tested on Windows
+2. For Mac users, installation by default creates an Intel-based environment (installs for x86 architecture)
 
 Hope it's not a trouble!
 

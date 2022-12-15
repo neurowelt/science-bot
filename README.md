@@ -37,7 +37,11 @@ Since [transformers](https://github.com/huggingface/transformers) library is han
 If you are an Apple M1 user, you will find some useful information [here](#Installing-on-MacOS-with-M1).
 
 **NOTE**<br>
-Installation is currently limited to my own experiences, therefore Windows or pre-M1 architectures are not covered in the installation script. Hope it's not a trouble!
+Installation is currently limited to my own experiences, therefore:
+1. Windows is not covered in the installation script
+2. For ease in Mac users, installation by default creates an Intel-based environment (installs for x86 architecture)
+
+Hope it's not a trouble!
 
 ### Datasets
 
@@ -46,6 +50,15 @@ In order to construct a local knowledge base for the ChatBot two open source dat
 * [COQA](https://paperswithcode.com/dataset/coqa)
 
 Based on them, three data files with knowledge base were prepared (using the `knowledge.py` script) and can be downloaded using `datasets.sh` script.
+
+Run the following script to download the knowledge base:
+
+```shell
+> chmod +x dataset.sh
+> ./dataset.sh
+```
+
+The `+x` argument makes the script executionable.
 
 ## Models
 
@@ -115,10 +128,12 @@ ChatBot queries a question and tries to retrieve an answer stored in this partic
 
 ### Installing on MacOS with M1
 
-In order to prepare the environment you can use the `pystuff.sh` script (installer uses [conda](https://github.com/conda/conda), so using it requires that package to be installed).
+In order to prepare the environment you can use the `install.sh` script (installer uses [conda](https://github.com/conda-forge/miniforge), so using it requires this package to be installed).
+
+Running this script will create an environment called `chatbot` with all the packages required, as well as download the knowledge base (basically run `datasets.sh` script).
 
 **IMPORTANT**<br>
-This shell script was only tested on OSX system. In order to run it follow the commands below:
+In order to run it follow the commands below (as with the `dataset.sh`):
 
 ```shell
 > chmod +x pystuff.sh

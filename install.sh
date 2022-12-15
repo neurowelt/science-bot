@@ -1,4 +1,14 @@
-#!/bin/sh
+#!/bin/bash
+
+# Checking system version taken from: https://stackoverflow.com/questions/3466166/how-to-check-if-running-in-cygwin-mac-or-linux
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)     machine=Linux;;
+    Darwin*)    machine=Mac;;
+    CYGWIN*)    machine=Cygwin;;
+    MINGW*)     machine=MinGw;;
+    *)          machine="UNKNOWN:${unameOut}"
+esac
 
 # Check if conda is installed
 if ! command -v conda &> /dev/null
@@ -8,11 +18,17 @@ then
     exit
 fi
 
-# Create ChatBot environment
-echo "Creating the environment..."
-CONDA_SUBDIR=osx-64 conda create -n chatbot python=3.9
-conda activate chatbot
-conda config --env --set subdir osx-64
+# Create conda environment
+echo "Creating conda environment for ${machine}"
+if [ $machine = "Mac" ]
+then
+    CONDA_SUBDIR=osx-64 conda create -n chatbot python=3.9
+    conda activate chatbot
+    conda config --env --set subdir osx-64
+else
+    conda create -n chatbot python=3.9
+    conda activate chatbot
+fi
 
 # Install packages
 echo "Installing Python packages..."

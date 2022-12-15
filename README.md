@@ -38,7 +38,7 @@ If you are an Apple M1 user, you will find some useful information [here](#Insta
 
 **NOTE**<br>
 Installation is currently limited to my own experiences, therefore:
-1. It was not tested on Windows
+1. It was not tested on Windows (**edit:** but I have added hopefully good shell commands to work on it anyway)
 2. For Mac users, installation by default creates an Intel-based environment (installs for x86 architecture)
 
 Hope it's not a trouble!

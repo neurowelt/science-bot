@@ -27,12 +27,11 @@ then
     conda config --env --set subdir osx-64
 else
     conda create -n chatbot python=3.9
-    conda activate chatbot
 fi
 
 # Install packages
 echo "Installing Python packages..."
-pip install -r requirements.txt
+conda install -r requirements.txt -n chatbot
 
 # Solves spacy problem with finding model
 echo "Downloading spacy model..."

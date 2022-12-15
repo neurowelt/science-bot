@@ -34,12 +34,20 @@ To run the bot `python>=3.9` is required (older versions were not tested). If yo
 
 Since [transformers](https://github.com/huggingface/transformers) library is handling installation of language models, they are installed with the first launch of the bot and do not have to be mentioned in this part.
 
+There is a certain issue with [spacy](https://github.com/explosion/spaCy) model, which can be solved by this command (after installation):
+
+```shell
+> python -m spacy download en_core_web_sm
+```
+
 If you are an Apple M1 user, you will find some useful information [here](#Installing-on-MacOS-with-M1).
 
 **NOTE**<br>
-Installation is currently limited to my own experiences, therefore:
+Using `install.sh` is an experimental option which is currently limited to my own experiences, therefore:
 1. It was not tested on Windows (**edit:** but I have added hopefully good shell commands to work on it anyway)
 2. For Mac users, installation by default creates an Intel-based environment (installs for x86 architecture)
+
+When working with the shell script I have encountered several issues with Python installations, so I recommend to install all Python dependecies using regular `pip`.
 
 Hope it's not a trouble!
 
@@ -127,6 +135,9 @@ ChatBot queries a question and tries to retrieve an answer stored in this partic
 ## Additional information
 
 ### Installing on MacOS with M1
+
+**NOTE**
+Installer is an experimentla option, that needs to be updated to work properly (issues with Python package installations). There is a good solution to M1 architecture problems if you want to create a new environment with packages that don't work for M1 (in this project `gevent` is the problem).
 
 In order to prepare the environment you can use the `install.sh` script (installer uses [conda](https://github.com/conda-forge/miniforge), so using it requires this package to be installed).
 
